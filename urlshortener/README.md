@@ -1,4 +1,5 @@
 # URL Shortener
+![CI](https://github.com/2CHILON/urlshortener.go/actions/workflows/ci.yml/badge.svg)
 
 A fast, self-hosted URL shortener written in Go using only the standard library. It ships with a JSON API, a small web UI, per-IP rate limiting, link expiry, click statistics and a Windows installer.
 
@@ -28,7 +29,7 @@ Closing the console window stops the server. Your links are stored in `%LOCALAPP
 Requires Go 1.22 or newer.
 
 ```powershell
-git clone https://github.com/2CHILON/YOUR_REPO.git
+git clone https://github.com/2CHILON/urlshortener.go.git
 cd YOUR_REPO/urlshortener
 go run ./cmd/server
 ```
