@@ -15,7 +15,7 @@ type Link struct {
 	Code       string     `json:"code"`
 	URL        string     `json:"url"`
 	CreatedAt  time.Time  `json:"created_at"`
-	ExpiresAt  *time.Time `json:expires_at,omitempy"`
+	ExpiresAt  *time.Time `json:"expires_at,omitempy"`
 	Clicks     int64      `json:"clicks"`
 	LastAccess *time.Time `json:"last_access,omitempy"`
 }
