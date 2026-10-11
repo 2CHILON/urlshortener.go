@@ -5,30 +5,30 @@ import (
 	"time"
 )
 
-var(
+var (
 	ErrNotFound = errors.New("link not found")
-	ErrExists = errors.New("code already exists")
+	ErrExists   = errors.New("code already exists")
 )
 
-//Link is a single shortened URL plus its usage stats.
-type Link struct{
-	Code string `json:"code"`
-	URL string `json:"url"`
-	CreatedAt time.Time `json:"created_at"`
-	ExpiresAt *time.Time `json:expires_at,omitempy"`
-	Clicks int64 `json:"clicks"`
+// Link is a single shortened URL plus its usage stats.
+type Link struct {
+	Code       string     `json:"code"`
+	URL        string     `json:"url"`
+	CreatedAt  time.Time  `json:"created_at"`
+	ExpiresAt  *time.Time `json:expires_at,omitempy"`
+	Clicks     int64      `json:"clicks"`
 	LastAccess *time.Time `json:"last_access,omitempy"`
 }
 
-//Expired reports wether the link is past its expiry at the given instant
-func(l Link) Expired(now time.Time) bool {
+// Expired reports wether the link is past its expiry at the given instant
+func (l Link) Expired(now time.Time) bool {
 	return l.ExpiresAt != nil && !now.Before(*l.ExpiresAt)
 }
 
 // Store is the persistence interface used by the service layer.
 // All methods must be safe for concurrent use.
 
-type Store interface{
+type Store interface {
 	//Create inserts a link; returns ErrExists if the code is taken.
 	Create(l Link) error
 	//Get returns a copy of the link or ErrNotFound
