@@ -1,6 +1,6 @@
 [Setup]
 AppName=URL Shortener
-AppVersion=1.0.0
+AppVersion=1.0.1
 DefaultDirName={autopf}\URLShortener
 DefaultGroupName=URL Shortener
 OutputDir=..\dist
